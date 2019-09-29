@@ -1,0 +1,63 @@
+[
+    {
+        "id": 1,
+        "name": "Mihoshi",
+        "image": "./public/images/tenchi_mihoshi.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Sasami",
+        "image": "./public/images/tenchi_sasami.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Ryoko",
+        "image": "./public/images/tenchi_ryoko.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Tenchi",
+        "image": "./public/images/tenchi_tenchi-masaki.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Ayeka",
+        "image": "./public/images/tenchi_ayeka.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Ryo-Ohki",
+        "image": "public/images/tenchi_ryo-ohki.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Washu",
+        "image": "./public/images/tenchi_washu.jpg"
+    },
+    {
+        "id": 8,
+        "name": "",
+        "image": "../imgs/daenarys.jpg"
+    },
+    {
+        "id": 9,
+        "name": "",
+        "image": "../imgs/melisandre.jpg"
+    },
+    {
+        "id": 10,
+        "name": "",
+        "image": "../imgs/jorah.jpg"
+    },
+    {
+        "id": 11,
+        "name": "",
+        "image": "../imgs/sansa.jpg"
+    },
+    {
+        "id": 12,
+        "name": "",
+        "image": "../imgs/sam.jpg"
+    }
+
+]
