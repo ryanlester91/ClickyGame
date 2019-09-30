@@ -1,7 +1,7 @@
 import React from "react";
-import "./CharCard.css";
+import "./Card.css";
 
-const CharCard = props => (
+const Card = props => (
   <div className="card" onClick={() => props.clickCount(props.id)}>
     <div className="img-container">
       <img alt={props.name} src={props.image} />
@@ -9,4 +9,4 @@ const CharCard = props => (
   </div>
 );
 
-export default CharCard;
+export default Card;
