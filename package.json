@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/ryanlester91/ClickyGame/issues"
   },
-  "homepage": "https://github.com/ryanlester91/ClickyGame#readme"
+  "homepage": "https://github.com/ryanlester91/ClickyGame#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.7.3",
+    "react": "^16.10.1",
+    "react-dom": "^16.10.1"
+  }
 }
