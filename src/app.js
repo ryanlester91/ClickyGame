@@ -22,17 +22,19 @@ class App extends Component {
   
       const name = event.target.attributes.getNamedItem("name").value;
       this.shuffleCharacters()
-      //const newState = { ...this.state };
+      this.checkGuess(name);
+    }
 
       shuffleCharacters = () => {
-        let clickedCharacters = this.state.characters;
-      
-
+        this.setState(this.state.characters = this.shuffleArray(this.state.characters))
+      }
+      shuffleArray = (characters) => {
+        let characters = this.state.characters;
       for (let i = characters.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
         [characters[i], characters[j]] = [characters[j], characters[i]];
       }
-      //shuffleArray = () ==> {}
+      }
 
       checkGuess = (name, cb) => {
         const newState = { ...this.state };
@@ -60,10 +62,18 @@ class App extends Component {
 render() {
   return(
     <div>
-      <Wrapper>Clicky Game</Wrapper>
+      <Wrapper>Clicky Game <Score>{this.score}</Score> <Alert>{this.alertMessage} </Alert></Wrapper>
       <body>
-        <Card></Card>
+        <Card>
+              id={card.id}
+              name={card.name}
+              image={card.image}
+              key={card.id}
+              clicked={card.clicked}
+        </Card>
       </body>
     </div>
   )
 }
+}
+export default App;
