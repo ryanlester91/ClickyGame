@@ -1,28 +1,31 @@
 const express = require("express");
-
 const mongoose = require("mongoose");
-const path = require("path");
-const app = express();
-const PORT = process.env.PORT || 3000;
 
+const app = express();
+const port = process.env.PORT || 5000;
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+const uri = process.env.ATLAS_URI;
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true});
+
+const connection = mongoose.connection;
+
+connection.once("open"), () => {
+    console.log("MongoDB database connection established successfully.")
+}
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)
-  app.use(express.static("public"));
+if (process.env.NODE_ENV === "") {
+  app.use(express.static(""));
+}
 
-// Add routes, both API and view
-app.use();
-
-app.get('*',function(req,res){
-    res.sendFile(__dirname + '/public/views/index.html');
-});   // * means any route
-
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
-
-// Start the API server
-app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/index.html"));
 });
+app.listen(port, () => {
+    console.log(`Server is running on port: ${port}`);
