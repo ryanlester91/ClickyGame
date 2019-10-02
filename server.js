@@ -7,8 +7,7 @@ const port = process.env.PORT || 5000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true});
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
 
 const connection = mongoose.connection;
 
@@ -20,12 +19,14 @@ connection.once("open"), () => {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "") {
-  app.use(express.static(""));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
 }
+
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
+})
